@@ -32,6 +32,7 @@ app.get('/shutter', function(req, res) {
 
 io.on('connection', function (socket) {
   socket.on('trigger', function (data) {
+    console.log('trigger detected, emitting triggerhappy')
     io.emit('triggerhappy', {hello: 'world'});
   });
 });

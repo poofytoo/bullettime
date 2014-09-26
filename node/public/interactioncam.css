@@ -151,6 +151,16 @@ header p {
   background: transparent;
   display: none;
 }
+#flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #fff;
+  display: none;
+}
 .reviewing #cover {
   display: block;
   -webkit-animation: flash 1s;

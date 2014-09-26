@@ -5,6 +5,8 @@
       canvas       = document.querySelector('#canvas'),
       vidcontainer = document.querySelector('#videocontainer')
 
+  var audio = new Audio('snap.wav');
+
   var ctx    = canvas.getContext('2d'),
      streaming    = false,
      width  = 600,
@@ -48,6 +50,10 @@
     ctx.drawImage(video, 0, 0, width, finalheight);
     ctx.restore();
     ctx.scale(1, 1);
+    audio.play();
+    $('#flash').fadeIn(100, function() {
+      $('#flash').fadeOut();
+    });
     upload();
   }
 
@@ -106,8 +112,8 @@
   });
   */
 
-  var socket = io('http://localhost:8001');
-  socket.on('trigger', function (data) {
+  var socket = io('http://18.111.65.73:8001');
+  socket.on('triggerhappy', function (data) {
     console.log('got!')
     setstate('reviewing');
     takepicture();
