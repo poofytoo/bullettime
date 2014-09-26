@@ -9,6 +9,7 @@
     "express": "3.4.0",
     "firebase": "*",
     "hbs": "*",
-    "body-parser": "*"
+    "body-parser": "*",
+    "socket.io" : "*"
   }
 }

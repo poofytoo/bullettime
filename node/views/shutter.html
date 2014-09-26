@@ -1,0 +1,16 @@
+<button id="snap">TAKE PHOTO</button>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.1.0.js"></script>
+<script type="text/javascript">
+  var socket = io('http://localhost:8001');
+  socket.on('trigger', function (data) {
+    console.log(data);
+  });
+
+  $('#snap').on('click', function() {
+    $.post('/takephoto', {}, function(data) {
+      console.log(data);
+    });
+  });
+</script>
