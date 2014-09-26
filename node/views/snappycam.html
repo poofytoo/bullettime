@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Interaction Cam</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+<link rel="stylesheet" href="interactioncam.css">
+</head>
+<body>
+  <div id="videocontainer">
+  <video id="video"></video>
+  </div>
+  <canvas id="canvas"></canvas>
+  <div id="controls"> 
+    <button id="resetbutton">&lt; Uh, let's try that again&hellip;</button>
+    <button id="uploadbutton">Win! Upload this! &gt;</button>
+  </div>
+  <div id="cover"></div>
+  <div id="uploading">Uploading&hellip;</div>
+  <div id="uploaded">
+    <form id="imgurform"> 
+      Uploaded: <input type="text" id="url"> 
+      <a href="#">link</a>
+    </form>
+    <button id="startbutton">&lt; Take another</button>
+  </div>
+  <footer>
+    <p>
+      Webcam interface by <a href="http://twitter.com/codepo8">Chris Heilmann</a> - 
+      <a href="https://github.com/codepo8/interaction-cam">Fork on GitHub</a>
+    </p>
+  </footer>
+  <script src="interactioncam.js"></script> 
+</body>
+</html>
