@@ -94,6 +94,8 @@
     }
   },false);
 
+  /*
+  PREVIOUS TRIGGER
   var fb = new Firebase('https://poofytoo.firebaseIO.com/exitsign');
   fb.child('easy').on('value', function(data) {
     if (data.val().trigger == 1) {
@@ -101,6 +103,14 @@
       takepicture();
       fb.child('easy').child('trigger').set(0);
     }
+  });
+  */
+
+  var socket = io('http://localhost:8001');
+  socket.on('trigger', function (data) {
+    console.log('got!')
+    setstate('reviewing');
+    takepicture();
   });
 
   setstate('playing');

@@ -29,12 +29,11 @@ app.get('/shutter', function(req, res) {
   res.render('shutter');
 });
 
-app.post('/takephoto', function(req, res) {
-  console.log('triggered');
-});
 
 io.on('connection', function (socket) {
-  socket.emit('trigger', { triggered: true });
+  socket.on('trigger', function (data) {
+    console.log('READY, PHOTOS');
+  });
 });
 
 app.post('/savephoto', function(req, res) {

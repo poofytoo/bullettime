@@ -9,8 +9,12 @@
   });
 
   $('#snap').on('click', function() {
+    socket.emit('trigger', { triggered: true });
+    /*
     $.post('/takephoto', {}, function(data) {
       console.log(data);
+
     });
+*/
   });
 </script>
