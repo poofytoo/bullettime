@@ -91,14 +91,16 @@
       vidcontainer.classname = 'playing';
     }
   }, false);
-
+/*
   document.addEventListener('keydown', function(ev) {
+    
     if (ev.which === 32) {
       ev.preventDefault();
       setstate('reviewing');
       takepicture();
     }
   },false);
+    */
 
   /*
   PREVIOUS TRIGGER
@@ -112,15 +114,65 @@
   });
   */
 
-  var socket = io('http://18.111.65.73:8001');
+  var socket = io('http://18.242.7.123:8001');
+
+  var triggerExtract;
   socket.on('triggerhappy', function (data) {
-    console.log('got!')
-    setstate('reviewing');
-    takepicture();
+    triggerExtract = data.t
+    console.log('receivedData - taking photo at ' + data.t);
+  });
+
+  socket.on('pingbot', function (data) {
+    $('body').prepend('<div class="ping">ping</div>');
+    $('.ping').delay(5000).fadeOut(3000);
   });
 
   setstate('playing');
   init();
+
+
+  document.addEventListener('keydown', function(ev) {
+    if (ev.which === 32) {
+      setInterval(clock, 200);
+    }
+  });
+  $('#camnum').on('keydown', function(ev) {
+    if (ev.which == 13) {
+      console.log('losefocus');
+      $(this).blur();
+
+    }
+  })
+
+  var timer = 0;
+  var triggerExtract = 20000000;
+
+  clock = function() {
+    timer ++;
+    console.log(timer);
+
+    if (timer >= triggerExtract) {
+      setstate('reviewing');
+      takepicture();
+      triggerExtract = 20000000;
+    }
+
+    if (triggerExtract < 20000000) {
+      if ((triggerExtract - timer)/5 == 1) {
+        $('body').prepend('<div class="countdown">1</div>');
+        $('.countdown').delay(700).fadeOut(200);
+      }
+      if ((triggerExtract - timer)/5 == 2) {
+        $('body').prepend('<div class="countdown">2</div>');
+        $('.countdown').delay(700).fadeOut(200);
+      }
+      if ((triggerExtract - timer)/5 == 3) {
+        $('body').prepend('<div class="countdown">3</div>');
+        $('.countdown').delay(700).fadeOut(200);
+      }
+    }
+
+  }
 
 
 })();

@@ -8,9 +8,49 @@
 
 <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 <link rel="stylesheet" href="interactioncam.css">
+<style>
+  #camnum {
+    font-size: 30px;
+  }
+  .ping {
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    color: #4aff7d;
+  }
+  .countdown {
+    font-size: 60px;
+    font-weight: 300;
+    text-align: center;
+    color: red;
+  }
+  .cross {
+    background-color: blue;
+    height: 6px;
+    width: 6px;
+    position: absolute;
+    left: 297px;
+    top: 237px;
+    z-index: 100;
+
+  }
+  .crossdot {
+    background-color: white;
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    left: 299px;
+    top: 239px;
+    z-index: 101;
+
+
+  }
+</style>
 </head>
 <body>
   <div id="videocontainer">
+  <div class="cross"></div>
+  <div class="crossdot"></div>
   <video id="video"></video>
   </div>
   <canvas id="canvas"></canvas>
@@ -29,10 +69,10 @@
     <button id="startbutton">&lt; Take another</button>
   </div>
   <footer>
-    <p>
       <input id="camnum" type="text" placeholder="#"/>
-      BulletTime by <a href="http://victorhh.com">Victor Hung</a>. 
-      Webcam interface by <a href="http://twitter.com/codepo8">Chris Heilmann</a>
+    <p>
+      BulletTime by <a href="http://victorhh.com">Victor</a>. 
+      Webcam by <a href="http://twitter.com/codepo8">Chris</a>
     </p>
   </footer>
   <script src="interactioncam.js"></script> 
