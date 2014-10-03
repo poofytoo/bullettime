@@ -61,7 +61,7 @@
     var head = /^data:image\/(png|jpeg);base64,/;
     var cn = $('#camnum').val();
     setstate('uploading');
-    data = canvas.toDataURL('image/jpeg', 0.9).replace(head, '');
+    data = canvas.toDataURL('image/jpeg', 0.8).replace(head, '');
     ctx.clearRect(0, 0, width, finalheight);
 
     // Send Photo to Server
@@ -133,7 +133,9 @@
 
   document.addEventListener('keydown', function(ev) {
     if (ev.which === 32) {
-      setInterval(clock, 200);
+      if (timer < 1){
+        setInterval(clock, 200);
+      }
     }
   });
   $('#camnum').on('keydown', function(ev) {

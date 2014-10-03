@@ -53,7 +53,9 @@ button {
 
   document.addEventListener('keydown', function(ev) {
     if (ev.which === 32) { 
-      setInterval(clock, 200);
+      if (timer < 1){
+        setInterval(clock, 200);
+      }
     }
   });
 
